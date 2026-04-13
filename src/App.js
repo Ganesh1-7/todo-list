@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-const API = `http://13.232.232.176:5000/todos`;
+const API = `${process.env.REACT_APP_API_URL}/todos`;
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');

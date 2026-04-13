@@ -63,6 +63,16 @@ Node.js server connected to AWS RDS.
 
 ---
 
+---
+
+### ⚙️ perrsistence
+
+Node.js server connected to AWS RDS.
+
+![Backend](./screenshots/persistence.png)
+
+---
+
 ## 🔐 Environment Variables
 
 ### Backend (`backend/.env`)
