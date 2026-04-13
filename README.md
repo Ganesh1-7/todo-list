@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# 📝 Full Stack To-Do App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern full-stack To-Do application built with **React, Node.js, MySQL (AWS RDS), Docker, and AWS EC2**.
 
-## Available Scripts
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* ✅ Add new tasks
+* ✅ Mark tasks as completed
+* ✅ Delete tasks
+* 🔄 Data persistence using AWS RDS
+* ☁️ Deployed on AWS EC2
+* 🐳 Dockerized frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🏗️ Architecture
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```text
+React (Frontend - Docker)
+        ↓
+Node.js (Backend - EC2)
+        ↓
+MySQL (AWS RDS)
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📸 Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🏠 Home UI
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home](./screenshots/home.png)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ➕ Add Task
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Add Task](./screenshots/add-task.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### ✅ Mark as Completed
 
-## Learn More
+![Completed](./screenshots/completed.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🗑 Delete Task
 
-### Code Splitting
+![Delete](./screenshots/delete.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### ⚙️ Backend Running on EC2
 
-### Making a Progressive Web App
+Node.js server connected to AWS RDS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Backend](./screenshots/backend.png)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔐 Environment Variables
 
-### Deployment
+### Backend (`backend/.env`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```env
+DB_HOST=your-rds-endpoint
+DB_USER=your-username
+DB_PASSWORD=your-password
+DB_NAME=todo_db
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Frontend (`frontend/.env`)
+
+```env
+REACT_APP_API_URL=http://your-ec2-ip:5000
+```
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/todo-app.git
+cd todo-app
+```
+
+---
+
+### 2️⃣ Backend Setup
+
+```bash
+cd backend
+node server.js
+```
+
+---
+
+### 🐳 Run Frontend with Docker
+
+```bash
+docker build -t todo-frontend .
+docker run -p 3000:3000 \
+-e REACT_APP_API_URL=http://your-ec2-ip:5000 \
+todo-frontend
+```
+
+---
+
+## 🌐 API Endpoints
+
+| Method | Endpoint     | Description   |
+| ------ | ------------ | ------------- |
+| GET    | `/todos`     | Get all todos |
+| POST   | `/todos`     | Add todo      |
+| PUT    | `/todos/:id` | Update todo   |
+| DELETE | `/todos/:id` | Delete todo   |
+
+---
+
+## ⚠️ Common Issues
+
+### Failed to fetch
+
+* Check API URL
+* Ensure backend is running
+* Verify EC2 ports are open
+
+### MySQL connection error
+
+* Verify `.env` credentials
+* Check RDS security group
+
+---
+
+## 👨‍💻 Author
+
+**Ganesh**
