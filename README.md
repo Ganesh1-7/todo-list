@@ -53,7 +53,7 @@ DB_NAME=todo_db
 
 ---
 
-### Frontend (`frontend/.env`)
+### Frontend (`src/.env`)
 
 ```env
 REACT_APP_API_URL=http://your-ec2-ip:5000
