@@ -9,12 +9,14 @@ fi
 
 cd ..
 
+
 read -p "Enter the backend Docker image name: " DOCKER_IMAGE_NAME
 if [ -z "$DOCKER_IMAGE_NAME" ]; then
   echo "❌ Image name cannot be empty"
   exit 1
 fi
 
+read -p "Enter the backend Docker container name: " DOCKER_CONTAINER_NAME
 if [ -z "$DOCKER_CONTAINER_NAME" ]; then
   echo "❌ Container name cannot be empty"
   exit 1
