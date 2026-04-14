@@ -152,7 +152,7 @@ Node.js server connected to AWS RDS.
 
 ---
 
-### ⚙️ perrsistence
+### ⚙️ AWS RDS Dashboard
 
 AWS RDS dashboard.
 
