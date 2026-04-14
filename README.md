@@ -28,6 +28,87 @@ MySQL (AWS RDS)
 
 ---
 
+
+## 🛠️ Setup Instructions
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/your-username/todo-app.git
+cd todo-app
+```
+
+---
+
+## 🔐 Environment Variables
+
+### Backend (`backend/.env`)
+
+```env
+DB_HOST=your-rds-endpoint
+DB_USER=your-username
+DB_PASSWORD=your-password
+DB_NAME=todo_db
+```
+
+---
+
+### Frontend (`frontend/.env`)
+
+```env
+REACT_APP_API_URL=http://your-ec2-ip:5000
+```
+---
+
+### This repository contains automation scripts for deploying both **backend** and **frontend** services.
+
+## 📁 Automation
+
+```
+.
+├── backend_deploy.sh     # Script to deploy backend
+├── frontend_deploy.sh    # Script to deploy frontend
+```
+
+
+2. Give execute permissions to scripts:
+
+```bash
+chmod +x backend_deploy.sh
+chmod +x frontend_deploy.sh
+```
+
+---
+
+## 🚀 Usage
+
+### Deploy Backend
+
+```bash
+./backend_deploy.sh
+```
+
+---
+
+### Deploy Frontend
+
+```bash
+./frontend_deploy.sh
+```
+
+---
+
+## 🌐 API Endpoints
+
+| Method | Endpoint     | Description   |
+| ------ | ------------ | ------------- |
+| GET    | `/todos`     | Get all todos |
+| POST   | `/todos`     | Add todo      |
+| PUT    | `/todos/:id` | Update todo   |
+| DELETE | `/todos/:id` | Delete todo   |
+
+---
+
 ## 📸 Screenshots
 
 ### 🏠 Home UI
@@ -63,8 +144,6 @@ Node.js server connected to AWS RDS.
 
 ---
 
----
-
 ### ⚙️ perrsistence
 
 Node.js server connected to AWS RDS.
@@ -78,69 +157,6 @@ Node.js server connected to AWS RDS.
 AWS RDS dashboard.
 
 ![Backend](./screenshots/rds-dashboard.png)
-
----
-
-## 🔐 Environment Variables
-
-### Backend (`backend/.env`)
-
-```env
-DB_HOST=your-rds-endpoint
-DB_USER=your-username
-DB_PASSWORD=your-password
-DB_NAME=todo_db
-```
-
----
-
-### Frontend (`frontend/.env`)
-
-```env
-REACT_APP_API_URL=http://your-ec2-ip:5000
-```
-
----
-
-## 🛠️ Setup Instructions
-
-### 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/your-username/todo-app.git
-cd todo-app
-```
-
----
-
-### 2️⃣ Backend Setup
-
-```bash
-cd backend
-node server.js
-```
-
----
-
-### 🐳 Run Frontend with Docker
-
-```bash
-docker build -t todo-frontend .
-docker run -p 3000:3000 \
--e REACT_APP_API_URL=http://your-ec2-ip:5000 \
-todo-frontend
-```
-
----
-
-## 🌐 API Endpoints
-
-| Method | Endpoint     | Description   |
-| ------ | ------------ | ------------- |
-| GET    | `/todos`     | Get all todos |
-| POST   | `/todos`     | Add todo      |
-| PUT    | `/todos/:id` | Update todo   |
-| DELETE | `/todos/:id` | Delete todo   |
 
 ---
 
@@ -160,5 +176,4 @@ todo-frontend
 ---
 
 ## 👨‍💻 Author
-
 **Ganesh**
