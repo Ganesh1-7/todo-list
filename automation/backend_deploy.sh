@@ -7,7 +7,7 @@ else
   exit 1
 fi
 
-cd ..
+cd ../backend
 
 
 read -p "Enter the backend Docker image name: " DOCKER_IMAGE_NAME
@@ -28,7 +28,7 @@ echo "🚀 Building Docker image..."
 docker build -t $DOCKER_IMAGE_NAME .
 
 echo "🚀 Running container..."
-docker run -d -p 5000:3000 \
+docker run -d -p 5000:5000 \
 --name $DOCKER_CONTAINER_NAME \
 -e DB_HOST="$DB_HOST" \
 -e DB_USER="$DB_USER" \
